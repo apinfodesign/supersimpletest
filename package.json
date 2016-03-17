@@ -1,0 +1,15 @@
+{
+  "name": "jan_26_intro-angular-mod-for-test",
+  "version": "1.0.0",
+  "description": "simple test",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon --ignore public/"
+  },
+  "author": "miles.hochstein@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "process": "^0.11.2"
+  }
+}

@@ -1,0 +1,23 @@
+td {border-bottom: 1px solid black; padding-top: 5px; padding-bottom: 5px;}
+
+.addform {padding:20px; background-color: #9e9e9e;}
+
+.container {
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    display:  inline-flex ;
+    justify-content:  space-around;
+}
+
+.item {
+    /*flex-basis: 100px;*/
+    order: 0;
+    width: 400px;
+    height: 350px;
+    background-color: ivory;
+    margin: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid black;
+}

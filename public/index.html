@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+<head>
+    <meta charset="UTF-8">
+    <title>URL Record Keeper</title>
+    <script src='lib/angular.min.js'></script>
+    <script src='js/index.js'></script>
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+</head>
+
+<body>
+<header>
+    <h1>URL Record Keeper</h1>
+</header>
+
+<main ng-controller='MainController'>
+    <br>
+
+
+    <div ng-controller = "AddController">
+        <div class="addform">
+            <h3> Add Record </h3>
+
+            <form name='form'  novalidate   >
+                <div>
+                    <div>
+                        <h4>URL: </h4>
+
+                        <input type="url"
+                               name="url"
+                               ng-model="record.url"
+                               required
+                               ng-model-options="{ debounce: 500 }"
+                               placeholder = "http://...">
+
+                         <span  ng-show="form.input.$error.required">
+                                Full http:// URL Required</span>
+
+                          <span ng-show=" form.url.$error.required">
+                                Not Valid http:// URL</span>
+
+                    </div>
+
+                    <br>
+
+                    <h4>Name: <h3>
+
+                    <input name='name'
+                           required
+                           ng-model='record.name'
+                           ng-model-options="{ debounce: 500 }"
+                           placeholder="Name Required">
+
+                    <span ng-show= 'form.age.$dirty &&
+                                    form.name.$error.required'>
+                                    Name is required
+                    </span>
+
+
+                </div>
+                <br>
+                <button
+                        ng-click = 'addRecord( record )'>
+                        Add Record
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+
+    <br>
+    <hr>
+    <br>
+
+    <h3>Image Gallery</h3>
+
+    <ul class="container">
+        <div class="item"
+            ng-repeat='record in records'
+             ng-click='select(record)'>
+            <br>ID: {{ $index + 1}}:
+            <br>Label: {{ record.name }}
+            <br> URL: <a href="{{record.url}}">{{record.url}}</a>
+            <hr>
+            <br> <img src = "{{record.url}}" height="150"  ></img>
+            <br>
+            <br> <button ng-click = 'deleteRecord(record.id)'>Delete</button>
+        </div>
+    </ul>
+
+    <br>
+
+
+</main>
+</body>
+</html>
